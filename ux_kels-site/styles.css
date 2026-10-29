@@ -460,6 +460,8 @@ a.post:hover .post__foot .icon, a.post:focus-visible .post__foot .icon { transla
 .say.is-live .slot img { visibility: hidden; }
 .sticker { position: absolute; left: 0; top: 0; border-radius: .22em; overflow: hidden; border: 3px solid var(--charcoal); box-shadow: 0 10px 0 -2px rgba(8,10,11,.35); will-change: transform; pointer-events: none; }
 .sticker.is-home { box-shadow: none; }
+/* WebKit drops the parent's rounded clip on a moving layer, so round the picture itself (inner radius = outer minus the 3px border) */
+.sticker img { border-radius: calc(.22em - 3px); }
 
 /* cards lean toward the pointer */
 .case { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: border-color .15s, transform .35s cubic-bezier(.3,1.4,.5,1); }
@@ -586,11 +588,15 @@ a.post:hover .post__foot .icon, a.post:focus-visible .post__foot .icon { transla
 /* two sides of one card: the back is turned away until you flip it */
 .badge__side { display: flex; flex-direction: column; background: var(--off-white); color: var(--charcoal); border: 3px solid var(--charcoal); border-radius: 20px; box-shadow: 8px 8px 0 0 var(--black); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
 .badge__side--back { position: absolute; inset: 0; transform: rotateY(180deg); }
+/* iOS Safari ignores backface-visibility on the bobbing cartoon, so the turned-away side is also hidden once the card is edge-on (~.1s into the spring) */
+.badge__side { transition: visibility 0s .1s; }
+.badge.is-flipped .badge__side--front, .badge:not(.is-flipped) .badge__side--back { visibility: hidden; }
+.badge.is-flipped .about__toon { animation: none; }
 .badge__side--back .badge__top--back { background: var(--forest); color: var(--lime); }
 .badge__side--back .badge__art--back { flex: 1; align-items: center; background-color: var(--lime); background-image: repeating-linear-gradient(to bottom, transparent 0 23px, rgba(24,61,43,.16) 23px 24px); }
 .badge__dogs { width: auto; height: 94%; max-width: 94%; object-fit: contain; }
 .badge__pups { display: flex; justify-content: space-between; width: 100%; padding-inline: 8%; }
-.badge__pup { font: 600 40px/1 var(--font-hand); }
+.badge__pup { font: 600 40px/1 var(--font-hand); white-space: nowrap; }
 .badge__clip { position: absolute; top: -14px; left: 50%; translate: -50% 0; width: 54px; height: 24px; border-radius: 8px; background: var(--charcoal); border: 2.5px solid var(--charcoal); box-shadow: inset 0 0 0 5px #3a4652; z-index: 1; transform: translateZ(2px); }
 .badge__top { display: grid; justify-items: center; padding: 22px 16px 12px; background: var(--lime); border-radius: 17px 17px 0 0; border-bottom: 3px solid var(--charcoal); }
 .badge__hello { font: 800 clamp(40px, 5vw, 52px)/.9 var(--font-display); letter-spacing: -0.04em; text-transform: uppercase; }
@@ -613,7 +619,7 @@ a.post:hover .post__foot .icon, a.post:focus-visible .post__foot .icon { transla
   @keyframes melon-bob { 0%, 100% { translate: 0 0; rotate: 0deg; } 15%, 45%, 75% { translate: 0 -6px; rotate: -3deg; } 30%, 60%, 90% { translate: 0 0; rotate: 0deg; } }
 }
 .about__badge { perspective: 1400px; }
-@media (max-width: 720px) { .about__badge { justify-self: center; max-width: 300px; } }
+@media (max-width: 720px) { .about__badge { justify-self: center; max-width: 300px; } .badge__pups { padding-inline: 6%; } .badge__pup { font-size: 32px; } }
 
 
 /* off-screen tiles and case study figures lean toward the pointer too */

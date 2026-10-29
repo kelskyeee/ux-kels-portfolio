@@ -1,0 +1,113 @@
+<!--
+  Projects deck: the full Work section design, saved for when case studies are ready.
+  To bring it back, replace the <section id="work"> block in index.html with everything below this comment.
+  All the styles (.deck, .case) are still in styles.css and the slider script is still in site.js,
+  so it works again as soon as it's pasted back. Add or remove <li class="deck__card"> items and update
+  --n, the "x of 4" labels, the range max and the "/ 04" count to match the number of projects.
+-->
+<!-- Work -->
+<section id="work" class="wrap section" data-where="the work">
+  <div class="squiggle" aria-hidden="true"><svg class="squiggle__line" viewBox="0 0 1200 60" preserveAspectRatio="none"><path pathLength="1"/></svg><span class="rh squiggle__rider" data-rh="ball" style="--s:34px;--f:var(--lime)"></span></div>
+  <div class="section-head">
+    <h2 class="h1">The final screen is only part of the story.</h2>
+    <div>
+      <p class="lead">Each project shows the questions, sketches and decisions behind the outcome. Swap the bracketed text for your own projects.</p>
+    </div>
+    <div class="peek"><span class="hand" aria-hidden="true">pick one ↓</span><img class="toon" src="img/toon-stand.png" width="282" height="720" alt="Cartoon of me standing with my hands in my pockets, smiling."></div>
+  </div>
+  <div class="deck" data-deck role="region" aria-roledescription="carousel" aria-label="Projects">
+    <ul class="deck__track" style="--n: 4">
+      <li class="deck__card is-active" role="group" aria-roledescription="slide" aria-label="1 of 4">
+        <button class="deck__spine case__cover--forest" type="button" aria-label="Show project 1 of 4">
+          <span class="deck__no">01</span>
+          <span class="deck__name">[Project name]</span>
+          <img class="deck__toon" src="img/toon-jump.png" alt="">
+        </button>
+        <a class="case" href="case-study.html">
+          <div class="case__cover case__cover--forest">
+            <img class="case__toon" src="img/toon-jump.png" alt="" aria-hidden="true">
+            <span class="case__ph">[Cover: key screen or process photo]</span>
+            <div class="sketch" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="case__body">
+            <span class="case__meta">[Role] · [Year] · [Web / iOS]</span>
+            <h3 class="case__title">[Project name]: [one-line outcome]</h3>
+            <p class="case__summary">[Two sentences: the problem, who it affected and what changed because of the work.]</p>
+            <ul class="tags"><li class="tag">Research</li><li class="tag">UX/UI</li><li class="tag">Prototyping</li></ul>
+            <span class="link">Read the case study</span>
+          </div>
+        </a>
+      </li>
+      <li class="deck__card" role="group" aria-roledescription="slide" aria-label="2 of 4">
+        <button class="deck__spine case__cover--paper" type="button" aria-label="Show project 2 of 4">
+          <span class="deck__no">02</span>
+          <span class="deck__name">[Project name]</span>
+          <img class="deck__toon" src="img/toon-laptop.png" alt="">
+        </button>
+        <a class="case" href="case-study.html">
+          <div class="case__cover case__cover--paper">
+            <img class="case__toon" src="img/toon-laptop.png" alt="" aria-hidden="true">
+            <span class="case__ph">[Cover: before-and-after comparison]</span>
+            <div class="sketch" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="case__body">
+            <span class="case__meta">[Role] · [Year] · [Web / iOS]</span>
+            <h3 class="case__title">[Project name]: [one-line outcome]</h3>
+            <p class="case__summary">[Two sentences: the problem, who it affected and what changed because of the work.]</p>
+            <ul class="tags"><li class="tag">Usability testing</li><li class="tag">Accessibility</li></ul>
+            <span class="link">Read the case study</span>
+          </div>
+        </a>
+      </li>
+      <li class="deck__card" role="group" aria-roledescription="slide" aria-label="3 of 4">
+        <button class="deck__spine case__cover--lime" type="button" aria-label="Show project 3 of 4">
+          <span class="deck__no">03</span>
+          <span class="deck__name">[Project name]</span>
+          <img class="deck__toon" src="img/toon-plant.png" alt="">
+        </button>
+        <a class="case" href="case-study.html">
+          <div class="case__cover case__cover--lime">
+            <img class="case__toon" src="img/toon-plant.png" alt="" aria-hidden="true">
+            <span class="case__ph">[Cover: design system components]</span>
+            <div class="sketch" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="case__body">
+            <span class="case__meta">[Role] · [Year] · [Product]</span>
+            <h3 class="case__title">[Project name]: [one-line outcome]</h3>
+            <p class="case__summary">[Two sentences: the problem, who it affected and what changed because of the work.]</p>
+            <ul class="tags"><li class="tag">Design systems</li><li class="tag">Components</li></ul>
+            <span class="link">Read the case study</span>
+          </div>
+        </a>
+      </li>
+      <li class="deck__card" role="group" aria-roledescription="slide" aria-label="4 of 4">
+        <button class="deck__spine case__cover--black" type="button" aria-label="Show project 4 of 4">
+          <span class="deck__no">04</span>
+          <span class="deck__name">[Project name]</span>
+          <img class="deck__toon" src="img/toon-wave.png" alt="">
+        </button>
+        <a class="case" href="case-study.html">
+          <div class="case__cover case__cover--black">
+            <img class="case__toon" src="img/toon-wave.png" alt="" aria-hidden="true">
+            <span class="case__ph">[Cover: research wall or workshop photo]</span>
+            <div class="sketch" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="case__body">
+            <span class="case__meta">[Role] · [Year] · [Volunteer / research]</span>
+            <h3 class="case__title">[Project name]: [one-line outcome]</h3>
+            <p class="case__summary">[Two sentences: the problem, who it affected and what changed because of the work.]</p>
+            <ul class="tags"><li class="tag">Collaborative research</li><li class="tag">Community</li></ul>
+            <span class="link">Read the case study</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <div class="deck__controls">
+      <button class="deck__btn deck__btn--prev" type="button" data-deck-prev aria-label="Previous project"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      <input class="deck__range" type="range" min="1" max="4" step="1" value="1" data-deck-range aria-label="Choose a project" aria-valuetext="Project 1 of 4">
+      <span class="deck__count"><b data-deck-now>01</b> / 04</span>
+      <button class="deck__btn" type="button" data-deck-next aria-label="Next project"><svg class="icon"><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+</section>
+

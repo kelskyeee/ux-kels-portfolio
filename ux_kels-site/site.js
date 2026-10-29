@@ -146,21 +146,28 @@
       pin.appendChild(el);
       return { slot: slot, el: el, from: starts[i % starts.length] };
     });
-    var queued = false;
+    // Slots don't move inside the pin, so measure them only on load and resize.
+    // Scrolling then just writes transforms, which keeps iOS from lagging behind.
+    var queued = false, pw = 0, ph = 0;
+    var measure = function () {
+      var pr = pin.getBoundingClientRect(), fs = getComputedStyle(text).fontSize;
+      pw = pr.width; ph = pr.height;
+      stickers.forEach(function (s) {
+        var sr = s.slot.getBoundingClientRect();
+        s.w = sr.width; s.h = sr.height;
+        s.x1 = sr.left - pr.left + sr.width / 2; s.y1 = sr.top - pr.top + sr.height / 2;
+        s.el.style.width = s.w + 'px'; s.el.style.height = s.h + 'px'; s.el.style.fontSize = fs;
+      });
+    };
     var place = function () {
       queued = false;
       var r = say.getBoundingClientRect();
       var p = clamp(-r.top / Math.max(1, r.height - innerHeight), 0, 1);
-      var pr = pin.getBoundingClientRect();
       stickers.forEach(function (s, i) {
-        var sr = s.slot.getBoundingClientRect();
         var t = ease(clamp((p - .08 - i * .1) / .45, 0, 1));
-        var x0 = s.from[0] * pr.width, y0 = s.from[1] * pr.height;
-        var x1 = sr.left - pr.left + sr.width / 2, y1 = sr.top - pr.top + sr.height / 2;
-        var x = x0 + (x1 - x0) * t - sr.width / 2, y = y0 + (y1 - y0) * t - sr.height / 2;
+        var x0 = s.from[0] * pw, y0 = s.from[1] * ph;
+        var x = x0 + (s.x1 - x0) * t - s.w / 2, y = y0 + (s.y1 - y0) * t - s.h / 2;
         var k = s.from[3] + (1 - s.from[3]) * t;
-        s.el.style.width = sr.width + 'px'; s.el.style.height = sr.height + 'px';
-        s.el.style.fontSize = getComputedStyle(text).fontSize;
         s.el.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + s.from[2] * (1 - t) + 'deg) scale(' + k + ')';
         s.el.classList.toggle('is-home', t >= 1);
       });
@@ -168,10 +175,12 @@
       words.forEach(function (w, i) { w.style.opacity = .2 + .8 * clamp(p * 1.5 * words.length - i, 0, 1); });
     };
     var queue = function () { if (!queued) { queued = true; requestAnimationFrame(place); } };
+    var remeasure = function () { measure(); queue(); };
     addEventListener('scroll', queue, { passive: true });
-    addEventListener('resize', queue);
-    if (document.fonts) document.fonts.ready.then(queue);
-    place();
+    addEventListener('resize', remeasure);
+    if (document.fonts) document.fonts.ready.then(remeasure);
+    addEventListener('load', remeasure);
+    measure(); place();
   }
 
   // Cards, tiles, figures and the cover lean toward the pointer; any sketch inside drifts the other way.
