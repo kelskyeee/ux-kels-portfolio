@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ux_kels · handover checklist</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Inter:wght@400;500;600&family=Caveat:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-8.6-9A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8.6 4c-1.6 4.6-8.6 9-8.6 9Z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M14 6l6 6-6 6"/></symbol>
+</svg>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="wordmark" href="index.html">ux<span>_</span>kels</a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links" data-burger><span class="burger__word" aria-hidden="true">menu</span><span class="burger__bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <div class="nav__links" id="nav-links">
+      <span class="hand nav__hint" aria-hidden="true">where to?</span>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#more">More</a>
+      <a class="btn btn--secondary" href="index.html#contact">Get in touch</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<article class="wrap post-page">
+  <section class="post-intro" data-where="handover checklist">
+    <div class="post-intro__text">
+      <a class="link" href="index.html#off-title" style="font-size:14px">Back to the feed</a>
+      <span class="label label--accent">Resource</span>
+      <h1 class="display" style="font-size:clamp(40px,6vw,76px)">5 things I check before every handover.</h1>
+      <p class="lead">A design file isn't finished when it looks right. It's finished when someone else can build it without guessing.</p>
+      <div class="peek"><span class="hand" aria-hidden="true">save this one ✓</span><img class="toon toon--wide" src="img/toon-desk.png" alt=""></div>
+    </div>
+    <div aria-hidden="true" class="tile post post--accent">
+          <span class="post__eyebrow">Resource</span>
+          <p class="post__head">5 things I check before every handover</p>
+          <div class="post__foot"><span>Save this</span><svg class="icon"><use href="#i-sparkle"/></svg></div>
+        </div>
+  </section>
+
+  <div class="post-body" data-where="the post">
+      <p>This is the short list I run through before a design goes to development. It saves a lot of back-and-forth later.</p>
+      <ul class="post-list">
+        <li><span><b>Every state is designed.</b> Empty, loading, error, success, disabled, and what happens with very long text.</span></li>
+        <li><span><b>Components are linked, not detached.</b> If it looks like the button, it should be the button.</span></li>
+        <li><span><b>Spacing and colour use tokens.</b> No one-off values that someone has to measure by hand.</span></li>
+        <li><span><b>Accessibility is checked.</b> Contrast, focus order, touch targets and alt text notes are in the file.</span></li>
+        <li><span><b>The flow is annotated.</b> Where each screen leads, what triggers it, and any logic that isn't obvious from the picture.</span></li>
+      </ul>
+      <p>Then I walk a developer through it, because the best checklist still misses something a quick conversation catches.</p>
+  </div>
+
+  <nav class="post-more" aria-label="More posts" data-where="more posts">
+    <span class="hand tilt">more from the feed</span>
+    <div class="post-more__grid">
+        <a href="post-ideas-to-impact.html" class="tile post post--feature">ideas → wireframes → impact</a>
+        <a href="post-still-learning.html" class="tile post post--dark">
+          <span class="post__eyebrow" style="color:var(--lime)">Growth</span>
+          <p class="post__head" style="font-size:clamp(20px,2.4vw,28px);text-transform:none;color:var(--off-white)">Still learning. Still building. Still figuring it out.</p>
+          <div class="post__foot"><span>@ux_kels</span><svg class="icon" style="color:var(--lime)"><use href="#i-heart"/></svg></div>
+        </a>
+        <a href="post-my-branding.html" class="tile post post--dark">
+          <span class="post__eyebrow" style="color:var(--lime)">Behind the brand</span>
+          <p class="post__head">My branding.</p>
+          <div class="post__foot"><span>@ux_kels</span><svg class="icon"><use href="#i-arrow"/></svg></div>
+        </a>
+    </div>
+  </nav>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Thoughtful design. Human experiences. Creative curiosity.</span>
+    <span class="footer__bye"><img class="toon footer__toon" src="img/toon-stand.png" width="282" height="720" alt="Cartoon of me standing with my hands in my pockets."><span class="hand" aria-hidden="true">bye for now ♡</span></span>
+    <span>ux_kels · South Africa</span>
+  </div>
+</footer>
+
+<nav class="pill" id="pill" aria-label="Quick links">
+  <span class="pill__face"><img src="img/toon-stand.png" alt=""></span>
+  <span class="pill__where">you're at <b id="pill-where">handover checklist</b></span>
+  <a class="pill__cta" href="index.html#contact">say hi</a>
+</nav>
+
+<script src="site.js"></script>
+</body>
+</html>
